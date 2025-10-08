@@ -1,0 +1,5 @@
+---
+
+pkgs: [nfs-common, nfs-kernel-server, python3, sudo, vim]
+
+...

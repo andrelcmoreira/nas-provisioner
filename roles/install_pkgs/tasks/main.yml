@@ -1,0 +1,18 @@
+---
+
+- name: Sync package database
+  become: true
+  become_user: root
+  become_method: su
+  apt:
+    update_cache: yes
+
+- name: Install packages
+  become: true
+  become_user: root
+  become_method: su
+  apt:
+    name: "{{ pkgs }}"
+    state: present
+
+...
