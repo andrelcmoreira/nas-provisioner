@@ -1,0 +1,12 @@
+---
+
+- name: Create NAS
+  hosts: debian_vm_vb
+  roles:
+    - install_pkgs
+    - configure_user
+    - configure_machine
+    - configure_nas
+    - configure_webserver
+
+...
