@@ -1,0 +1,33 @@
+---
+
+- name: Create shared folder
+  file:
+    path: "/home/{{ ansible_env.USER }}/nfs/public"
+    state: directory
+    mode: '0777'
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+
+- name: Export folder
+  become: true
+  become_user: root
+  lineinfile:
+    path: /etc/exports
+    line: "/home/{{ ansible_env.USER }}/nfs/public *(rw,sync,no_subtree_check)"
+    state: present
+    insertafter: EOF
+
+- name: Apply NFS export changes
+  become: true
+  become_user: root
+  command: exportfs -ra
+
+- name: Reload NFS server service
+  become: true
+  become_user: root
+  systemd:
+    name: nfs-kernel-server
+    state: restarted
+    daemon_reload: yes
+
+...

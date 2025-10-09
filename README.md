@@ -1,6 +1,6 @@
-# nas-provisioner
+# nasify
 
-[![ci](https://github.com/andrelcmoreira/nas-provisioner/actions/workflows/ci.yml/badge.svg)](https://github.com/andrelcmoreira/nas-provisioner/actions/workflows/ci.yml)
+[![ci](https://github.com/andrelcmoreira/nasify/actions/workflows/ci.yml/badge.svg)](https://github.com/andrelcmoreira/nasify/actions/workflows/ci.yml)
 
 ## Overview
 
