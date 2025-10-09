@@ -1,0 +1,13 @@
+---
+
+- name: Add user to sudoers file
+  become: true
+  become_user: root
+  become_method: su
+  lineinfile:
+    path: /etc/sudoers
+    line: "{{ ansible_env.USER }} ALL=(ALL:ALL) ALL"
+    state: present
+    insertafter: EOF
+
+...
