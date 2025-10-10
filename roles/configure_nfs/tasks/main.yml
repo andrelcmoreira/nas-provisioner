@@ -2,9 +2,9 @@
 
 - name: Create shared folder
   file:
-    path: "/home/{{ ansible_env.USER }}/nfs/public"
+    path: "{{ ansible_env.HOME }}/nfs/public"
     state: directory
-    mode: '0777'
+    mode: "0777"
     owner: "{{ ansible_env.USER }}"
     group: "{{ ansible_env.USER }}"
 
@@ -13,7 +13,7 @@
   become_user: root
   lineinfile:
     path: /etc/exports
-    line: "/home/{{ ansible_env.USER }}/nfs/public *(rw,sync,no_subtree_check)"
+    line: "{{ ansible_env.HOME }}/nfs/public *(rw,sync,no_subtree_check)"
     state: present
     insertafter: EOF
 

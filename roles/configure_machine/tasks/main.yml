@@ -5,8 +5,8 @@
   become_user: root
   replace:
     path: "/etc/systemd/logind.conf"
-    regexp: '^#?HandleLidSwitch=.*'
-    replace: 'HandleLidSwitch=ignore'
+    regexp: "^#?HandleLidSwitch=.*"
+    replace: "HandleLidSwitch=ignore"
 
 - name: Restart elogind service
   become: true
