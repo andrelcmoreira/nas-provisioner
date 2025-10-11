@@ -1,7 +1,9 @@
 ---
 
 - name: Create NAS
-  hosts: debian_vm
+  hosts: all
+  vars:
+    shared_folder: nfs/public
   roles:
     - install_pkgs
     - configure_user
