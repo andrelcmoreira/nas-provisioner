@@ -1,5 +1,12 @@
 ---
 
-# TODO
+- name: Enable webserver
+  copy:
+    dest: "{{ ansible_env.HOME }}/.profile"
+    content: |
+      exec python3 -m http.server -d {{ ansible_env.HOME }}/nfs/public &
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: "0644"
 
 ...
