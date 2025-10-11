@@ -10,7 +10,7 @@
 
 - name: Export folder
   become: true
-  become_user: root
+  become_method: su
   lineinfile:
     path: /etc/exports
     line: "{{ ansible_env.HOME }}/nfs/public *(rw,sync,no_subtree_check)"
@@ -19,12 +19,12 @@
 
 - name: Apply NFS export changes
   become: true
-  become_user: root
-  command: exportfs -ra
+  become_method: su
+  command: /usr/sbin/exportfs -a
 
 - name: Reload NFS server service
   become: true
-  become_user: root
+  become_method: su
   systemd:
     name: nfs-kernel-server
     state: restarted
