@@ -3,6 +3,7 @@
 - name: Disable LID sensor events
   become: true
   become_user: root
+  become_method: su
   replace:
     path: "/etc/systemd/logind.conf"
     regexp: "^#?HandleLidSwitch=.*"
@@ -11,6 +12,7 @@
 - name: Restart elogind service
   become: true
   become_user: root
+  become_method: su
   systemd:
     name: systemd-logind
     state: restarted
