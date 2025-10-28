@@ -1,7 +1,5 @@
 # nasify
 
-[![ci](https://github.com/andrelcmoreira/nasify/actions/workflows/ci.yml/badge.svg)](https://github.com/andrelcmoreira/nasify/actions/workflows/ci.yml)
-
 ## Running the playbook
 
 ```bash
